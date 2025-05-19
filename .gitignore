@@ -70,4 +70,5 @@ testem.log
 Thumbs.db
 
 #Contraseña
-/environments
+/environments/environment.ts
+/environments/environment.prod.ts
