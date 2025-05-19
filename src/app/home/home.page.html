@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Mi Ubicación
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ubicación Actual</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input [(ngModel)]="nombre" name="nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input [(ngModel)]="apellido" name="apellido" required></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="success" (click)="abrirEnGoogleMaps()">
+          <ion-icon name="locate-outline" slot="start"></ion-icon>
+          Abrir mi ubicación en Google Maps
+        </ion-button>
+        <ion-button expand="block" color="primary" (click)="guardarEnFirebase()">
+          <ion-icon name="save-outline" slot="start"></ion-icon>
+          Guardar en Firebase
+        </ion-button>
+      </form>
+      <ion-list *ngIf="latitude && longitude" class="ion-margin-top">
+        <ion-item>
+          <ion-label>
+            <h2>Latitud: {{ latitude }}</h2>
+            <h2>Longitud: {{ longitude }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
